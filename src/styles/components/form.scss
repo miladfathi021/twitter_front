@@ -1,0 +1,59 @@
+.form {
+  .form-group {
+    width: 100%;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .label {
+    display: block;
+    margin-bottom: .6rem;
+    font-size: 1.6rem;
+  }
+
+  .inputs {
+    width: 100%;
+    padding: .6rem .9rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0,0,0, .2);
+    outline: none;
+    font-family: $robotoRegular;
+
+    &:focus {
+      border: .1rem solid $dark-blue;
+    }
+  }
+
+  .btn {
+    border: none;
+    padding: .5rem 1.2rem;
+    font-size: 1.6rem;
+    border-radius: .4rem;
+    cursor: pointer;
+    outline: none;
+
+    &-primary {
+      background-color: $dark-blue;
+      color: $white-color;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.btn {
+  border: none;
+  padding: .5rem 1.2rem;
+  font-size: 1.6rem;
+  border-radius: .4rem;
+  cursor: pointer;
+  outline: none;
+  display: block;
+
+  &-primary {
+    background-color: $dark-blue;
+    color: $white-color;
+    font-size: 1.6rem;
+  }
+}

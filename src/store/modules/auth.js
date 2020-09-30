@@ -5,8 +5,8 @@ import router from "../../router/router";
 
 const state = {
     user: null,
-    apiToken: null,
-    isAuthenticated: false,
+    apiToken: localStorage.getItem('api_token') || null,
+    isAuthenticated: !!localStorage.getItem('api_token'),
     inputError: null,
     systemError: null,
 }
@@ -26,7 +26,7 @@ const getters = {
 const mutations = {
     success (state, { user }) {
         state.user = user;
-        state.apiToken = localStorage.getItem('api_token') || null;
+        state.apiToken = localStorage.getItem('api_token') ?? null;
         state.isAuthenticated = true;
     },
     inputError (state, { error }) {

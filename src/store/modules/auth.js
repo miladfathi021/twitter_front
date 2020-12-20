@@ -5,7 +5,7 @@ import router from "../../router/router";
 
 const state = {
     user: null,
-    apiToken: localStorage.getItem('api_token') || null,
+    apiToken:  null,
     isAuthenticated: !!localStorage.getItem('api_token'),
     inputError: null,
     systemError: null,
@@ -13,7 +13,7 @@ const state = {
 
 const getters = {
     user (state) {
-        return state.user;
+        return state.user || JSON.parse(localStorage.getItem('user'))
     },
     apiToken (state) {
         return state.apiToken;
@@ -24,16 +24,16 @@ const getters = {
 }
 
 const mutations = {
-    success (state, { user }) {
+    success (state, user) {
         state.user = user;
         state.apiToken = localStorage.getItem('api_token') ?? null;
         state.isAuthenticated = true;
     },
-    inputError (state, { error }) {
+    inputError (state, error) {
         state.inputError = error;
         state.isAuthenticated = false;
     },
-    systemError (state, { error }) {
+    systemError (state, error) {
         state.systemError = error;
         state.isAuthenticated = false;
     },
@@ -52,12 +52,14 @@ const actions = {
             let user = await AuthService.login(loginData);
             localStorage.setItem('api_token', user.data.data.api_token);
             delete user.data.data.api_token;
+            localStorage.setItem('user', JSON.stringify(user.data.data));
             commit('success', user.data.data);
             router.push({ name: 'Home' })
         } catch (e) {
             if (e.response.status === 400) {
                 commit('inputError', e.response.data.data);
                 localStorage.removeItem('api_token');
+                localStorage.removeItem('user');
             } else {
                 commit('systemError', e.response.data);
             }

@@ -2,7 +2,7 @@
     <transition name="fade">
         <div class="modal-backdrop">
             <div class="modal" v-click-outside="{ ref: 'modal-backdrop', method: 'close' }">
-                <span class="close-modal" @click="close">X</span>
+                <span class="close-modal" @click="close"><i class="las la-times-circle"></i></span>
                 <div class="modal-header">
                     <slot name="modal-header"></slot>
                 </div>
@@ -37,6 +37,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 99999;
     }
 
     .modal {
@@ -49,7 +50,7 @@
         display: flex;
         flex-direction: column;
         border-radius: 1rem;
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
     .close-modal {
         position: absolute;
@@ -57,7 +58,18 @@
         top: 1rem;
         padding: .2rem;
         cursor: pointer;
-        color: $danger-color;
+        color: $dark-blue;
+
+        .la-times-circle {
+          font-size: 2.7rem;
+          transition: all .4s linear;
+
+          &:hover {
+            color: $white-color;
+            background-color: $dark-blue;
+            border-radius: 100%;
+          }
+        }
     }
 
     .modal-body {

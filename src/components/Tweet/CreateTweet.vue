@@ -2,7 +2,7 @@
   <div style="width: 100%; position:relative;">
     <div class="create-tweet">
       <div class="avatar">
-        <img class="avatar-img" src="../assets/user.png" alt="avatar">
+        <img class="avatar-img" src="../../assets/user.png" alt="avatar">
       </div>
       <div class="text-box">
         <textarea placeholder="Whats happening?" v-model="tweet"></textarea>
@@ -76,6 +76,7 @@ export default {
       height: 5rem;
       padding-top: 1rem;
       font-family: $robotoRegular;
+      color: $black-color;
 
       &:focus {
         outline: none;
@@ -84,8 +85,8 @@ export default {
         transition: all .1s linear;
       }
 
-      &[placeholder] {
-        color: black;
+      &::placeholder {
+        color: rgba(112, 112, 112, .7);
         opacity: .8;
         font-size: 2.1rem;
       }

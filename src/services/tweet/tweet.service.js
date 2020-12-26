@@ -29,6 +29,24 @@ const TweetService = {
                 Authorization: 'Bearer ' + localStorage.getItem('api_token')
             }
         })
+    },
+
+    update (data) {
+        return axios.patch(env.BaseUrl + '/tweets/' + data.id, {
+            body: data.body
+        }, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('api_token')
+            }
+        });
+    },
+
+    delete (data) {
+        return axios.delete(env.BaseUrl + '/tweets/' + data, {
+            headers: {
+                Authorization: 'Bearer ' + localStorage.getItem('api_token')
+            }
+        });
     }
 }
 

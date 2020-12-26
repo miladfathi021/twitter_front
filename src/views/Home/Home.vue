@@ -16,10 +16,10 @@
 </template>
 
 <script>
-    import CreateTweet from "@/components/CreateTweet";
+    import CreateTweet from "@/components/Tweet/CreateTweet";
     import SidebarRight from "@/components/SidebarRight";
     import SidebarLeft from "@/components/SidebarLeft";
-    import Tweet from "@/components/Tweet";
+    import Tweet from "@/components/Tweet/Tweet";
 
     export default {
         name: "Home",

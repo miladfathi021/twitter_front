@@ -28,6 +28,16 @@ const mutations = {
     },
     addNewData () {
         //
+    },
+    updateTweet (state, data) {
+        state.all.filter(function (tweet) {
+            if (tweet.id === data.id) {
+                tweet.body = data.body
+            }
+        });
+    },
+    deleteTweet () {
+
     }
 }
 
@@ -46,6 +56,14 @@ const actions = {
         let tweet = await TweetService.create(data);
         commit('addData', tweet.data.data);
         return tweet.data.data;
+    },
+    async update ({ commit }, { data }) {
+        let tweet = await TweetService.update(data);
+        commit('updateTweet', tweet.data.data);
+    },
+    delete ({ commit }, { data }) {
+        TweetService.delete(data)
+        commit('deleteTweet')
     }
 }
 

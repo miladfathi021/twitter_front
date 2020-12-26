@@ -56,4 +56,16 @@
     color: $white-color;
     font-size: 1.6rem;
   }
+
+  &-danger {
+    background-color: $danger-color;
+    color: $white-color;
+    font-size: 1.6rem;
+  }
+
+  &-gray {
+    background-color: rgba(112, 112, 112, .2);
+    color: $black-color;
+    font-size: 1.6rem;
+  }
 }

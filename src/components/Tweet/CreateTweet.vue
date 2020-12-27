@@ -58,6 +58,7 @@ export default {
     margin-right: 1.5rem;
     width: 5rem;
     height: 5rem;
+    border-radius: 100%;
     &-img {
       width: 5rem;
       height: 5rem;

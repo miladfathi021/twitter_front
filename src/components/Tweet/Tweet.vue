@@ -135,6 +135,7 @@ export default {
     .avatar {
       width: 5rem;
       height: 5rem;
+      border-radius: 100%;
         &-img {
           display: block;
           width: 5rem;

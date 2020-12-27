@@ -7,15 +7,15 @@
             </li>
 
             <li class="sidebar-item">
-                <a @click.prevent="routerPush($event, 'Home')"><i class="las la-hashtag"></i> Explore</a>
+                <a @click.prevent="routerPush('Home')"><i class="las la-hashtag"></i> Explore</a>
             </li>
 
             <li class="sidebar-item">
-                <a @click.prevent="routerPush($event, 'Home')"><i class="las la-bell"></i> Notification</a>
+                <a @click.prevent="routerPush('Home')"><i class="las la-bell"></i> Notification</a>
             </li>
 
             <li class="sidebar-item">
-                <a @click.prevent="routerPush($event, 'Home')"><i class="las la-envelope"></i> Messages</a>
+                <a @click.prevent="routerPush('Home')"><i class="las la-envelope"></i> Messages</a>
             </li>
 
             <li class="sidebar-item">
@@ -51,24 +51,17 @@
         name: "SidebarLeft",
         methods: {
             routerPush (event, name) {
-                console.log(event.target)
                 if (this.$router.currentRoute.name === name) {
                     return;
                 }
 
                 this.$router.push({name: name})
-            },
-            activeLink() {
-                
             }
         },
         computed: {
             ...mapGetters({
                 user: 'auth/user'
             })
-        },
-        beforeMount() {
-            this.routerPush({target: 'Yes'}, 'Home')
         }
     }
 </script>
@@ -94,7 +87,7 @@
         }
 
         .sidebar-item {
-            font-size: 2.2rem;
+            font-size: 2.1rem;
             font-family: $robotoBold;
             cursor: pointer;
             transition: all .1s linear;

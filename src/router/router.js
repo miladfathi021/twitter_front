@@ -8,10 +8,12 @@ import Home from "../views/Home/Home";
 import authenticate from "./middleware/authenticate";
 import store from "../store/store";
 import middlewarePipeline from "./middleware/middlewarePipeline";
+import Person from "../views/Person/Person";
 
 const routes = [
     {path: '/', component: Welcome, name: 'Welcome'},
     {path: '/home', component: Home, name: 'Home', meta: {middleware: [authenticate]}},
+    {path: '/:username', component: Person, name: 'Person', meta: {middleware: [authenticate]}},
 ];
 
 const router = new VueRouter({
@@ -20,6 +22,7 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
+
     if (!to.meta.middleware) {
         return next();
     }

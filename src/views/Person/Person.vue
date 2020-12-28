@@ -49,7 +49,7 @@ export default {
               this.person = res.data.data.user;
               this.tweets = res.data.data.tweets.list;
             }).catch(e => {
-              console.log(e.response.status)
+              console.log(e.response.status) // FIXME page 404
             }
         );
     }
